@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid'
 
 
 function Show() {
-const {showInfo, findProgramme, findCast, castInfo, findEpisodes, episodes} = useContext(Context) 
+const {showInfo, findProgramme, findCast, castInfo, findEpisodes, episodes, watchlist, addToWatchList, list, removeFromList} = useContext(Context) 
 const showId = useParams()
 
 console.log(showId.id)
@@ -16,6 +16,21 @@ function date(day) {
   let goodDay = new Date(day).toDateString()
   return goodDay
 } 
+
+function addShow(show) {
+  const alreadyOnWatchlist = list.some(item => item.id === show.id)
+  if(alreadyOnWatchlist) {
+    removeFromList(show.id)
+    console.log("Already on your List")
+    
+      // return <i className="ri-heart-fill favorite" onClick={() => removeFromFav(img.id)}></i>
+  } else {
+    addToWatchList(show)
+    
+      // return <i className="ri-heart-line favorite" onClick={() => toggleFavorite(img.id, img)}></i>
+  } 
+}
+
 
 
 useEffect(() => {
@@ -32,12 +47,16 @@ useEffect(() => {
   console.log(episodes)
 }, [castInfo])
 
+useEffect(() => {
+  localStorage.setItem('myShows', JSON.stringify(list))
+}, [list])
 
-const { name, summary, image, rating, premiered, genres, ended, averageRuntime, language } = showInfo
+
+const { name, summary, image, rating, premiered, genres, ended, averageRuntime, language, id } = showInfo
 
   return (
     <div className='show-container'>
-      <div key={nanoid()}>      
+      <div key={nanoid()} id={id}>      
       <div className="show-grid">
         <div className='show-left'>
           <img className='show-image' src={image?.medium} alt={name} />
@@ -59,7 +78,8 @@ const { name, summary, image, rating, premiered, genres, ended, averageRuntime, 
           </div>
 
             <div className='add'>
-              <button className='add-button'>Add +</button>
+              <button className='add-button' onClick={() => addShow(showInfo)}>
+                {list.some(item => item.id === id) ? "Remove" : "Add +"}</button>
             </div>
 
             

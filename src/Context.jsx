@@ -1,4 +1,4 @@
-import {useState, createContext} from "react"
+import {useState, createContext, useEffect} from "react"
 
 
 const Context = createContext()
@@ -14,6 +14,9 @@ function ContextProvider({children}) {
     const [episodes, setEpisodes] = useState([]) 
     const [actorInfo, setActorInfo] = useState([])
     const [actorCredits, setActorCredits] = useState([])
+    const [watchlist, setWatchlist] = useState([])
+    const [list, setList] = useState(() => JSON.parse(localStorage.getItem("myShows")))
+    
     
 
     // const getVeggie = async () => {
@@ -84,6 +87,38 @@ function ContextProvider({children}) {
         setActorCredits(foundActorCreditData)
       }
 
+      function addToWatchList(newItem) {
+        setWatchlist(prevItems => [...prevItems, newItem])
+        setList(prevItems => [...prevItems, newItem]) 
+        // localStorage.setItem('myShows', JSON.stringify(watchlist))
+        console.log(newItem)
+    }
+
+    function getWatchList()  {
+      const check = localStorage.getItem('myShows')
+     if(check) {
+        setList(JSON.parse(check))
+         console.log(list.length)
+      } else {
+        console.log("No list")
+      }
+    }
+
+    function removeFromList(id) {
+      setList(prevItems => prevItems.filter(item => item.id !== id))
+      console.log(list)
+
+  }
+
+  useEffect(() => {
+    localStorage.setItem('myShows', JSON.stringify(list))
+  }, [list])
+    // useEffect(() => {
+    //   localStorage.setItem('myShows', JSON.stringify(watchlist))
+    // }, [])
+
+    
+
 
     
     return (
@@ -99,7 +134,13 @@ function ContextProvider({children}) {
             actorInfo,
             findActor,  
             actorCredits,
-            findActorCredits,  
+            findActorCredits,
+            watchlist,
+            addToWatchList,
+            list,
+            getWatchList,
+            removeFromList
+            
           }}>
             {children}
         </Context.Provider>

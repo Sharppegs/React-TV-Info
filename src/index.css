@@ -1,7 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Prompt', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 :root {
@@ -206,6 +206,14 @@ img {
    border-radius: 25px;
    border: none;
    background: rgb(225, 167, 20);
+   cursor: pointer;
+   transition: all 200ms ease-in-out;
+}
+
+
+.add-button:hover {
+  background: rgb(251, 208, 101);
+  transform: scale(1.1);
 }
 
 .cast-info {
@@ -307,4 +315,75 @@ img {
   object-fit: cover;
   border-radius: 5px;
   margin-right: 1em;
+}
+
+/* watchlist */
+
+.watchlist-title {
+  width: 90%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.list-items {
+  margin: 1em auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5em;
+  
+}
+
+.list-item-container {
+  background: #2f2f2f;
+  border: 1px solid rgb(90, 89, 89);
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.list-item {
+  display: flex;
+  align-items: start;
+  color: #f5f5f5;
+  text-decoration: none; 
+  margin-bottom: 1.5em;
+}
+
+.list-item-img {
+  max-width: 100px;
+  border-radius: 25px;
+  margin-right: 1em;
+  align-self: center;
+}
+
+.list-item-title {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  
+  gap: 1.5em;
+}
+
+.list-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.list-btn {
+  padding: 1em 2em;
+  border-radius: 15px;
+  background: goldenrod;
+  border: none;
+  font-weight: 700;
+}
+
+.list-btn:hover {
+  cursor: pointer;
+}
+
+.remove {
+  background: rgb(145, 2, 2);
+  color: white;
 }
