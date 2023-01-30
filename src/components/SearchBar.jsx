@@ -20,6 +20,7 @@ function SearchBar() {
                 <FaSearch />
                 <input 
                     type="text"
+                    placeholder='Series Title'
                     value={input}
                     onChange={(e) => setInput(e.target.value)} />
             </div>

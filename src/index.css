@@ -98,16 +98,16 @@ img {
 
 .nav-bar {
   margin: 0;
-  height: 3em;
+  height: 4em;
   display: flex;
   align-items: center;
-  background: rgb(13, 5, 61);
+  background: #2c2c2c;
   padding: 1em;
 }
 
 .nav-link {
   margin-right: 1.5em;
-  color: white;
+  color: goldenrod;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.5rem;
@@ -117,18 +117,41 @@ img {
   color: gray;
 }
 
+.logo {
+  margin: 1em auto;
+  font-size: 4rem;
+  text-align: center;
+}
+
 .home {
   padding: 1em;
 }
 
-.joke-container {
-  margin: 0 auto;
-  padding: 2em;
-  width: 750px;
-  text-align: center;
+.popular-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 2em;
+}
+
+.popular-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1em;
+  
+}
+
+.search-container {
+  width: 750px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-image {
+  max-width: 500px;
+  text-align: center;
+  
 }
 
 .show-container {
@@ -205,7 +228,8 @@ img {
    font-size: var(--fs-500);
    border-radius: 25px;
    border: none;
-   background: rgb(225, 167, 20);
+   background: #3c3c3c;
+   color: #137ef0;
    cursor: pointer;
    transition: all 200ms ease-in-out;
 }

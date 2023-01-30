@@ -16,37 +16,28 @@ function ContextProvider({children}) {
     const [actorCredits, setActorCredits] = useState([])
     const [watchlist, setWatchlist] = useState([])
     const [list, setList] = useState(() => JSON.parse(localStorage.getItem("myShows")))
+    const [schedule, setSchedule] = useState([])
     
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': '3819d4d7e1mshb60c35661a89497p1aa61djsnc8a15ba96b17',
+        'X-RapidAPI-Host': 'unogs-unogs-v1.p.rapidapi.com'
+      }
+    };
     
-
-    // const getVeggie = async () => {
-    //     const vegCheck = localStorage.getItem('veggie')
-    //    if(vegCheck) {
-    //       setVeggie(JSON.parse(vegCheck))
-    //         } else {
-    //       const vegApi = 
-    //       await fetch(`https://api.spoonacular.com/recipes/random?apiKey=613653434a3a4a9e94b5e6fa7f4da38b&number=9&tags=vegetarian`)
-    //       const vegData = await vegApi.json()
-    //       localStorage.setItem('veggie', JSON.stringify(vegData.recipes))
-    //       setVeggie(vegData.recipes)
-    //       console.log(vegData)
-    //     }
-    //   }
-
-  
-    // const getCuisine = async(name) => {
-    //     const cuisData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=613653434a3a4a9e94b5e6fa7f4da38b&cuisine=${name}&number=9`)
-    //     const cuisRecipes = await cuisData.json()
-    //     setCuisine(cuisRecipes.results)
-    // }
-
-    // const fetchDetails = async (recipe) => {
-    //     const data = 
-    //       await fetch(`https://api.spoonacular.com/recipes/${recipe.name}/information?apiKey=613653434a3a4a9e94b5e6fa7f4da38b`)
-    //     const detailsData = await data.json()
-    //     setDetails(detailsData)
-    //     console.log(detailsData)
-    //   }
+      const getSchedule = async() => {
+        const popularCheck = localStorage.getItem('popularTV')
+       if(popularCheck) {
+          setSchedule(JSON.parse(popularCheck))
+            } else {
+        const scheduleData = await fetch('https://unogs-unogs-v1.p.rapidapi.com/search/titles?start_year=2023&type=series&order_by=date', options)
+        const scheduleDataShows = await scheduleData.json()
+        localStorage.setItem('popularTV', JSON.stringify(scheduleDataShows.results))
+        setSchedule(scheduleDataShows.results)
+          }
+    }
 
       const getSearched = async(name) => {
         const searchedData = await fetch(`https://api.tvmaze.com/search/shows?q=${name}`)
@@ -123,6 +114,8 @@ function ContextProvider({children}) {
     
     return (
         <Context.Provider value={{
+            schedule,
+            getSchedule,
             searchedShows,
             getSearched,
             showInfo,
