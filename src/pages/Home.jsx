@@ -1,5 +1,6 @@
 import React from 'react'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Context } from "../Context"
 import styled from 'styled-components'
 import PopularCard from '../components/PopularCard'
@@ -8,7 +9,15 @@ import { nanoid } from 'nanoid'
 
 function Home() {
 
-  const {schedule, getSchedule} = useContext(Context)  
+  const {schedule, getSchedule} = useContext(Context)
+  const [title, setTitle] = useState("") 
+  const navigate = useNavigate()
+    
+  function submitHandler(e) {
+      setTitle(e)
+      console.log(e)
+      navigate('/searched/' + e)
+  }  
 
   useEffect(() => {
     getSchedule()
@@ -21,8 +30,10 @@ function Home() {
         <PopularCard
           id={index}
           name={show.title}
+          value={show.title}
           image={show.img}
           className="show-card"
+          onClick={() => submitHandler(show.title)}
           >
         </PopularCard>
       </FilmCard>
@@ -33,11 +44,11 @@ function Home() {
 return (
   
  <div className='popular-container'>
-  <h1 className='logo'>Logo</h1>
-  <h2 className='popular-title'>Popular on Netflix</h2>
-  <Grid>
-    {PopularCardElements}
-  </Grid>
+    
+    <h2 className='popular-title'>Popular on Netflix</h2>
+    <Grid>
+      {PopularCardElements}
+    </Grid>
   </div>
   
 )
@@ -46,14 +57,14 @@ return (
 const Grid = styled.div`
 display: grid;
 width: 90%;
-margin: 0 auto;
+margin: 0;
 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 grid-gap: 1.5rem;
 
 `
 
 const FilmCard = styled.div`
-text-align: center;
+
 img{
   border-radius: 2rem;
   max-width: 200px;

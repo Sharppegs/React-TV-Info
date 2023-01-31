@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid'
 import ListItem from '../components/ListItem'
 
 function Watchlist() {
-  const{watchlist, addToWatchList, list, getWatchList} = useContext(Context) 
+  const{list, getWatchList} = useContext(Context) 
   
   
 
@@ -28,6 +28,8 @@ function Watchlist() {
             name={show.name}
             image={show.image?.medium}
             blurb={show.summary.slice(0, 150)}
+            
+            
         />
         )}
     </div>

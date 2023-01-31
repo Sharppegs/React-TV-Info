@@ -17,7 +17,7 @@ function SearchBar() {
     return (
         <FormStyle onSubmit={submitHandler}>
             <div>
-                <FaSearch />
+                <FaSearch onClick={submitHandler} />
                 <input 
                     type="text"
                     placeholder='Series Title'
@@ -29,7 +29,7 @@ function SearchBar() {
     }
 
 const FormStyle = styled.form`
-    margin: 2em 12em;
+    margin: 2em 1em;
     
     div {
         position: relative;
@@ -54,6 +54,11 @@ const FormStyle = styled.form`
         left: 0%;
         transform: translate(100%, -50%);
         color: #fff;
+    }
+
+    @media(min-width: 868px) {
+         
+        margin: 2em 4em; 
     }
 `
 

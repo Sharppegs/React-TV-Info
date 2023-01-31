@@ -3,12 +3,12 @@ import SearchBar from '../components/SearchBar'
 
 function Search() {
   return (
-    <>
+    <div>
     <SearchBar />
-    <div className='search-container'>
-    <img className='search-image' src="./img/example.png" alt="exampleimage" />
+    
+      <img className='search-image' src="./img/example.png" alt="exampleimage" />
+    
     </div>
-    </>
   )
 }
 

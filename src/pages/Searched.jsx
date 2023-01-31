@@ -33,27 +33,14 @@ function Searched() {
 
 
   return (
-    
-    // <Grid>
-    //   {searchedShows.map((show) => {
-    //     return (
-    //       <FilmCard key={show.show.id}>
-    //         <Link to={`/show/${show.show.externals?.thetvdb}`}>
-    //           <p>{show.show.name}</p>
-    //           <img src={show.show.image?.medium} /> 
-    //           {/* <p dangerouslySetInnerHTML={{__html: show.show.summary}}></p> */}
-    //         </Link>
-    //       </FilmCard>
-
-    //         )
-    //     })}
-    // </Grid>
-    <>
-    <SearchBar />
-    <Grid>
-      {ShowCardElements}
-    </Grid>
-    </>
+ 
+    <div className='search-results'>
+      <h1 className='logo-show'>Logo</h1>
+      <SearchBar />
+      <Grid>
+        {ShowCardElements}
+      </Grid>
+    </div>
     
   )
 }

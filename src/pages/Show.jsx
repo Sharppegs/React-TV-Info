@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react'
 import { Context } from "../Context"
 import Actor from '../components/Actor'
 import { nanoid } from 'nanoid'
+import SearchBar from '../components/SearchBar'
 
 
 function Show() {
@@ -56,20 +57,33 @@ const { name, summary, image, rating, premiered, genres, ended, averageRuntime, 
 
   return (
     <div className='show-container'>
+      <h1 className='logo-show'>Logo</h1>
+      <SearchBar />
       <div key={nanoid()} id={id}>      
       <div className="show-grid">
         <div className='show-left'>
+        <h1 className='show-title-mobile'>{name}</h1>
           <img className='show-image' src={image?.medium} alt={name} />
         </div>
         
         <div className='show-right'>
           <div className='title-rating'>
             <h1 className='show-title'>{name}</h1>
-            <h4>{rating?.average} ⭐</h4>
+            <div className='add'>
+              <button 
+                className={list.some(item => item.id === id) ? "add-button remove" : "add-button"} 
+                onClick={() => addShow(showInfo)}
+              >
+                {list.some(item => item.id === id) ? "Remove" : "Add +"}</button>
+            </div>
+            
         </div>
 
           <div className='show-details'>
             <p dangerouslySetInnerHTML={{__html: summary}}></p>
+            <div className='rating'> 
+              <h2>{rating?.average} ⭐</h2>
+            </div>
             <p>First episode: {date(premiered)}</p>
             <p>Last episode: {ended === null ? "Ongoing" : date(ended)}</p>
             <p>{genres?.join(", ")}</p>
@@ -77,18 +91,14 @@ const { name, summary, image, rating, premiered, genres, ended, averageRuntime, 
             <p>Language: {language}</p>
           </div>
 
-            <div className='add'>
-              <button className='add-button' onClick={() => addShow(showInfo)}>
-                {list.some(item => item.id === id) ? "Remove" : "Add +"}</button>
-            </div>
-
+          
             
         </div>  
 
         
         <div className='cast-info'>
           
-        <h2>Cast</h2>
+        <h2 className="cast-title">Cast</h2>
               {castInfo?.map(actor => 
               <Actor 
                 key={nanoid()}
@@ -106,12 +116,12 @@ const { name, summary, image, rating, premiered, genres, ended, averageRuntime, 
             </div>
 
             <div className='episode-info'>
-              <h2>{episodes?._embedded?.episodes.length} Episodes</h2>
+              <h2 className='episode-info-title'>{episodes?._embedded?.episodes.length} Episodes</h2>
               <ul>
                 {episodes?._embedded?.episodes.map((episode, i) => 
                 <li key={nanoid()}>
                   <img className='episode-image' src={episode.image?.medium}/>
-                  <h5 className="episode-title">{i + 1}. {episode.name.slice(0,25)}</h5>
+                  <h5 className="episode-title">{i + 1}. {episode.name.slice(0, 25)}</h5>
                   <p className='air-date'>{episode.airdate}</p>
                 </li>)}
                 

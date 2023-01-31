@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react'
 import { Context } from "../Context"
 import { nanoid } from 'nanoid'
 import ShowCredit from '../components/ShowCredit'
+import SearchBar from '../components/SearchBar'
 
 function ActorPage() {
 const {actorInfo, findActor, actorCredits, findActorCredits} = useContext(Context) 
@@ -31,6 +32,9 @@ useEffect(() => {
   
 
   return (
+    <>
+    <SearchBar />
+   
     <div className='actorpage-container' key={nanoid()}>
       <div className='actorpage-left'>
         <img className='actorpage-image' src={image?.medium} />
@@ -56,6 +60,7 @@ useEffect(() => {
       </div>
 
     </div>
+    </>
   )
 }
 
