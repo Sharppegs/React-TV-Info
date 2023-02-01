@@ -5,6 +5,7 @@ import Watchlist from "./pages/Watchlist"
 import Show from "./pages/Show"
 import NoShow from "./pages/NoShow"
 import Nav from "./pages/Nav"
+import { Navbar } from "./components/Navbar"
 import Header from "./components/Header"
 import ActorPage from "./pages/ActorPage"
 import {useState, useEffect, useContext} from 'react'
@@ -19,8 +20,8 @@ function App() {
 
    return (
     <div className="app-layout">
-      {/* <Header /> */}
-      <Nav />
+     
+      <Navbar />
     <div className="container">
       <Routes>
         <Route exact path="/Home" element={<Home />} />

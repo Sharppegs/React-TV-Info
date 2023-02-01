@@ -43,7 +43,7 @@ function Home() {
 
 return (
   
- <div className='popular-container'>
+ <div>
     
     <h2 className='popular-title'>Popular on Netflix</h2>
     <Grid>
@@ -55,12 +55,11 @@ return (
 }
 
 const Grid = styled.div`
-display: grid;
-width: 90%;
-margin: 0;
-grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-grid-gap: 1.5rem;
-
+  display: grid;
+  width: 90%;
+  margin: 0;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1.5rem;
 `
 
 const FilmCard = styled.div`
@@ -77,7 +76,7 @@ img{
 h4 {
   
   color: #fff;
-  z-index: 10;
+  
   text-align: center;
   
 }
