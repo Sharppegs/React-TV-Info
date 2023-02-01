@@ -19,7 +19,7 @@ function date(day) {
 } 
 
 function addShow(show) {
-  const alreadyOnWatchlist = list.some(item => item.id === show.id)
+  const alreadyOnWatchlist = list?.some(item => item.id === show.id)
   if(alreadyOnWatchlist) {
     removeFromList(show.id)
     console.log("Already on your List")
@@ -71,10 +71,10 @@ const { name, summary, image, rating, premiered, genres, ended, averageRuntime, 
             <h1 className='show-title'>{name}</h1>
             <div className='add'>
               <button 
-                className={list.some(item => item.id === id) ? "add-button remove" : "add-button"} 
+                className={list?.some(item => item.id === id) ? "add-button remove" : "add-button"} 
                 onClick={() => addShow(showInfo)}
               >
-                {list.some(item => item.id === id) ? "Remove" : "Add +"}</button>
+                {list?.some(item => item.id === id) ? "Remove" : "Add +"}</button>
             </div>
             
         </div>

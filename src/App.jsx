@@ -24,7 +24,7 @@ function App() {
       <Navbar />
     <div className="container">
       <Routes>
-        <Route exact path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/show/:id" element={<Show />} />
         <Route path="/noshow" element={<NoShow />} />
         <Route path="/actorpage/:id" element={<ActorPage />} />

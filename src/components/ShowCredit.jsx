@@ -19,7 +19,7 @@ function ShowCredit(props) {
 const Credit = styled(Link)`
   background: #313030;
   color: #f5f5f5;
-  width: 450px;
+  max-width: 450px;
   margin-bottom: 0.5em;
   padding: 0.5em 1em;
   display: flex;

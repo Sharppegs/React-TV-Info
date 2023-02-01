@@ -43,8 +43,8 @@ function Home() {
 
 return (
   
- <div>
-    
+ <div className='home'>
+    <h1 className='logo-show'>Logo</h1>
     <h2 className='popular-title'>Popular on Netflix</h2>
     <Grid>
       {PopularCardElements}

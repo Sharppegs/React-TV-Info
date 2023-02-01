@@ -15,7 +15,7 @@ function ContextProvider({children}) {
     const [actorInfo, setActorInfo] = useState([])
     const [actorCredits, setActorCredits] = useState([])
     const [watchlist, setWatchlist] = useState([])
-    const [list, setList] = useState(() => JSON.parse(localStorage.getItem("myShows")))
+    const [list, setList] = useState(() => JSON.parse(localStorage.getItem("myShows")) || [])
     const [schedule, setSchedule] = useState([])
     
 
@@ -46,12 +46,16 @@ function ContextProvider({children}) {
         
     }
 
-      const findProgramme = async(name) => {
-        console.log(name)
-        const programmeData = await fetch(`https://api.tvmaze.com/lookup/shows?thetvdb=${name}`)
-        const foundProgrammeData = await programmeData.json()
-        setShowInfo(foundProgrammeData)
-        
+    //   const findProgramme = async(name) => {
+    //     console.log(name)
+    //     const programmeData = await fetch(`https://api.tvmaze.com/lookup/shows?thetvdb=${name}`)
+    //     const foundProgrammeData = await programmeData.json()
+    //     setShowInfo(foundProgrammeData)  
+    // }
+      function findProgramme(name) {
+         fetch(`https://api.tvmaze.com/lookup/shows?thetvdb=${name}`)
+        .then(res => res.json())
+        .then(data => setShowInfo(data)   )    
     }
 
       const findCast = async(id) => {
@@ -89,7 +93,7 @@ function ContextProvider({children}) {
       const check = localStorage.getItem('myShows')
      if(check) {
         setList(JSON.parse(check))
-         console.log(list.length)
+         console.log(list?.length)
       } else {
         console.log("No list")
       }

@@ -21,9 +21,9 @@ export const Navbar = () => {
         <h2 className='logo'>Logo</h2>
         
         <ul>
-        <li onClick={handleToggle}><Link to="/Home" className="nav-link">Home</Link></li>
-        <li onClick={handleToggle}><Link to="/Search" className="nav-link">Search</Link></li>
-        <li onClick={handleToggle}><Link to="/Watchlist" className="nav-link">My Watchlist</Link></li>
+        <li onClick={handleToggle}><Link to="/" className="nav-link">Home</Link></li>
+        <li onClick={handleToggle}><Link to="/search" className="nav-link">Search</Link></li>
+        <li onClick={handleToggle}><Link to="/watchlist" className="nav-link">My Watchlist</Link></li>
         </ul>
     </nav>
     </>

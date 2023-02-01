@@ -75,6 +75,8 @@ img {
 .app-layout {
   display: grid;
   position: relative;
+  height: 100%;
+  min-height: 100vh;
 }
 
 /* @media(min-width: 868px) {
@@ -123,7 +125,7 @@ img {
     color: #a70c0c;
     position: absolute;
     font-size: 2.5rem;
-    top: 10px;
+    top: 16px;
     left: 10px;
     z-index: 100; 
     transition: 0.5s all ease-in-out;
@@ -138,17 +140,7 @@ img {
     left: 80%;
   }
 
-  /* .nav-toggle-icon {
-    display: block;
-    color: #470ca7;
-    position: absolute;
-    font-size: 2.5rem;
-    top: 10px;
-    left: 10px;
-    z-index: 100; 
-  } */
-
-  .navbar ul{
+ .navbar ul{
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -203,9 +195,9 @@ img {
 }
 
 .home {
-  border: 1px solid red;
+  margin-top: 1em;
+  padding: 0 1.5em;
 }
-
 
 .popular-card {
   display: flex;
@@ -221,6 +213,12 @@ img {
   
 }
 
+.search {
+  text-align: center;
+  margin-top: 1em;
+  padding: 0 1.5em;
+}
+
 .search-results {
   padding: 1em;
 }
@@ -233,6 +231,7 @@ img {
 
 .logo-show {
   display: block;
+  text-align: right;
 }
 
 .show-grid {
@@ -487,22 +486,26 @@ img {
 
 .actorpage-container {
   text-align: center;
-  margin: 1.5em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+ 
 }
 
 .actorpage-left {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   gap: 1.2em;
+  
 }
+
 .actorpage-right {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   gap: 1em;
 }
 
@@ -523,6 +526,22 @@ img {
   object-fit: cover;
   border-radius: 5px;
   margin-right: 1em;
+}
+
+@media (min-width: 868px) {
+
+  .actorpage-container {
+    text-align: center;
+    margin: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .actorpage-left, 
+  .actor-page-right {
+    justify-content: start;
+    
+  }
 }
 
 /* watchlist */
