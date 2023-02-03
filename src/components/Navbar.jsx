@@ -18,7 +18,7 @@ export const Navbar = () => {
     </div>
     <nav className={toggle?'navbar expanded':'navbar'}>
     
-        <h2 className='logo'>Logo</h2>
+        <img className='logo' src="/img/logo.png" />
         
         <ul>
         <li onClick={handleToggle}><Link to="/" className="nav-link">Home</Link></li>

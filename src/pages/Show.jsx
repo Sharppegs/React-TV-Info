@@ -57,7 +57,7 @@ const { name, summary, image, rating, premiered, genres, ended, averageRuntime, 
 
   return (
     <div className='show-container'>
-      <h1 className='logo-show'>Logo</h1>
+      <img className='logo-show' src="/img/logo.png" />
       <SearchBar />
       <div key={nanoid()} id={id}>      
       <div className="show-grid">

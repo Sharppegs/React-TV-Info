@@ -28,6 +28,7 @@ function Watchlist() {
             name={show.name}
             image={show.image?.medium}
             blurb={show.summary.slice(0, 150)}
+            rating={show.rating.average}
             
             
         />

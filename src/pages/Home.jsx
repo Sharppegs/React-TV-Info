@@ -44,7 +44,7 @@ function Home() {
 return (
   
  <div className='home'>
-    <h1 className='logo-show'>Logo</h1>
+    <img className='logo-show' src="/img/logo.png" />
     <h2 className='popular-title'>Popular on Netflix</h2>
     <Grid>
       {PopularCardElements}
@@ -57,7 +57,7 @@ return (
 const Grid = styled.div`
   display: grid;
   width: 90%;
-  margin: 0;
+  margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 1.5rem;
 `

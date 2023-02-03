@@ -45,9 +45,9 @@ useEffect(() => {
 
     <div className='list-btns'>
       <div className='rating-counter'>
-        <button className="rating-btn" onClick={() => setRatingCount(ratingCount - 1)}>-</button>
-        <h5><span className='my-rating' value={ratingCount}>{ratingCount}</span>/10</h5>
-        <button className="rating-btn" onClick={() => addRating(props.id)}>+</button>
+        
+        <h5 className='my-rating' value={props.rating}>⭐{props.rating}</h5>
+        
       </div>
         <button className='list-btn remove' onClick={() => removeFromList(props.id)}>Remove</button>
     </div>
