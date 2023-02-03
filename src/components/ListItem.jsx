@@ -46,7 +46,7 @@ useEffect(() => {
     <div className='list-btns'>
       <div className='rating-counter'>
         
-        <h5 className='my-rating' value={props.rating}>⭐ {props.rating}</h5>
+        <h5 className='my-rating' value={props.rating}>⭐{props.rating}</h5>
         
       </div>
         <button className='list-btn remove' onClick={() => removeFromList(props.id)}>Remove</button>

@@ -35,6 +35,7 @@ function Searched() {
   return (
  
     <div className='search-results'>
+        
       <SearchBar />
       <Grid>
         {ShowCardElements}

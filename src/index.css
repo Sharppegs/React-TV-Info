@@ -99,7 +99,7 @@ img {
 /* NAVBAR */
 
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   margin-left: -100%;
@@ -123,7 +123,7 @@ img {
 .toggle-icon {
     display: block;
     color: #a70c0c;
-    position: absolute;
+    position: fixed;
     font-size: 2.5rem;
     top: 16px;
     left: 10px;
@@ -245,6 +245,7 @@ img {
 
 .search-results {
   padding: 1em;
+  margin-top: 1.5em;
 }
 
 .search-image {

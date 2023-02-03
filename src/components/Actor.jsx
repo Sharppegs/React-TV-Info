@@ -27,8 +27,8 @@ const ActorLink = styled(Link)`
   color: #f5f5f5;
   margin-bottom: 0.5em;
   padding: 0.5em 1.5em;
-  display: flex;
-  gap: 1.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   text-align: left;
   border-radius: 25px;
