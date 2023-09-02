@@ -1,7 +1,6 @@
 import {useState} from 'react'
-import { RiCloseLine } from 'react-icons/ri'
-import { HiOutlineMenu } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
+import { Twirl as Hamburger } from 'hamburger-react'
 
 export const Navbar = () => {
 
@@ -14,8 +13,9 @@ export const Navbar = () => {
   return (
   <>
     <div onClick={handleToggle} className={toggle? 'toggle-icon right' : 'toggle-icon'}>
-          {toggle?<RiCloseLine />:<HiOutlineMenu />}
+          {toggle?<Hamburger toggled={toggle} />:<Hamburger />}
     </div>
+   
     <nav className={toggle?'navbar expanded':'navbar'}>
     
         <img className='logo' src="/img/logo.png" />
